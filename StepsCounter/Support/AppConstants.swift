@@ -8,8 +8,14 @@
 
 
 import Foundation
-
+import KeychainAccess
 import UserDefaultsService
+
+struct AppConstant {
+	static var bundleId: String { Bundle.main.bundleIdentifier ?? "StepsCounter" }
+}
+
+let keychain = Keychain(service: AppConstant.bundleId)
 
 enum StepCounterUDKeys: String, UserDefaultsKeyProtocol {
 	var key: String { self.rawValue }
@@ -43,4 +49,9 @@ struct DateHelper {
 	static var endOfWeek: Date {
 		return calendar.date(byAdding: .day, value: 7, to: startOfWeek) ?? Date()
 	}
+}
+
+
+extension Notification.Name {
+	static var unauthorized = Notification.Name("unauthorized")
 }

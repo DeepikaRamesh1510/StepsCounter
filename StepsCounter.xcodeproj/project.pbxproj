@@ -22,6 +22,11 @@
 		6B7EE7452ABC1A1F002086D7 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7442ABC1A1F002086D7 /* TodayViewModel.swift */; };
 		6B7EE7472ABC1A4D002086D7 /* StepsBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7462ABC1A4D002086D7 /* StepsBaseViewModel.swift */; };
 		6B7EE74A2ABC2556002086D7 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7492ABC2556002086D7 /* AppConstants.swift */; };
+		6B7EE74C2ABC28A5002086D7 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE74B2ABC28A5002086D7 /* NetworkConstants.swift */; };
+		6B7EE74E2ABC2A9B002086D7 /* StepCounterApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE74D2ABC2A9B002086D7 /* StepCounterApiService.swift */; };
+		6B7EE7502ABC2B69002086D7 /* StepCounterEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE74F2ABC2B69002086D7 /* StepCounterEndPoint.swift */; };
+		6B7EE7542ABC2EC0002086D7 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 6B7EE7532ABC2EC0002086D7 /* KeychainAccess */; };
+		6B7EE7562ABC32EA002086D7 /* StepsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7552ABC32EA002086D7 /* StepsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +46,10 @@
 		6B7EE7442ABC1A1F002086D7 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		6B7EE7462ABC1A4D002086D7 /* StepsBaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsBaseViewModel.swift; sourceTree = "<group>"; };
 		6B7EE7492ABC2556002086D7 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		6B7EE74B2ABC28A5002086D7 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		6B7EE74D2ABC2A9B002086D7 /* StepCounterApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCounterApiService.swift; sourceTree = "<group>"; };
+		6B7EE74F2ABC2B69002086D7 /* StepCounterEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCounterEndPoint.swift; sourceTree = "<group>"; };
+		6B7EE7552ABC32EA002086D7 /* StepsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +59,7 @@
 			files = (
 				6B0185FC2AB9582100554903 /* HealthKit.framework in Frameworks */,
 				6B0186022AB9725800554903 /* UserDefaultsService in Frameworks */,
+				6B7EE7542ABC2EC0002086D7 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +136,9 @@
 		6B0185EA2AB9226400554903 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				6B7EE74B2ABC28A5002086D7 /* NetworkConstants.swift */,
+				6B7EE74D2ABC2A9B002086D7 /* StepCounterApiService.swift */,
+				6B7EE74F2ABC2B69002086D7 /* StepCounterEndPoint.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -142,6 +155,7 @@
 		6B0185EC2AB9229100554903 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6B7EE7552ABC32EA002086D7 /* StepsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +214,7 @@
 			name = StepsCounter;
 			packageProductDependencies = (
 				6B0186012AB9725800554903 /* UserDefaultsService */,
+				6B7EE7532ABC2EC0002086D7 /* KeychainAccess */,
 			);
 			productName = StepsCounter;
 			productReference = 6B0185D62AB9220D00554903 /* StepsCounter.app */;
@@ -231,6 +246,7 @@
 			mainGroup = 6B0185CD2AB9220C00554903;
 			packageReferences = (
 				6B0186002AB9725700554903 /* XCRemoteSwiftPackageReference "UserDefaultsService" */,
+				6B7EE7522ABC2EC0002086D7 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 6B0185D72AB9220D00554903 /* Products */;
 			projectDirPath = "";
@@ -258,12 +274,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B7EE74C2ABC28A5002086D7 /* NetworkConstants.swift in Sources */,
 				6B0185F82AB92B9500554903 /* HistoryView.swift in Sources */,
 				6B0185EF2AB9268E00554903 /* TabbarView.swift in Sources */,
+				6B7EE7562ABC32EA002086D7 /* StepsModel.swift in Sources */,
+				6B7EE7502ABC2B69002086D7 /* StepCounterEndPoint.swift in Sources */,
 				6B0185FF2AB95F5B00554903 /* HealthKitManager.swift in Sources */,
 				6B7EE74A2ABC2556002086D7 /* AppConstants.swift in Sources */,
 				6B7EE7472ABC1A4D002086D7 /* StepsBaseViewModel.swift in Sources */,
 				6B0185F12AB926C300554903 /* SettingsView.swift in Sources */,
+				6B7EE74E2ABC2A9B002086D7 /* StepCounterApiService.swift in Sources */,
 				6B0185DC2AB9220D00554903 /* ContentView.swift in Sources */,
 				6B0185F32AB926E700554903 /* StepsBaseView.swift in Sources */,
 				6B0185F52AB92A5500554903 /* TodayView.swift in Sources */,
@@ -485,6 +505,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		6B7EE7522ABC2EC0002086D7 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -492,6 +520,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6B0186002AB9725700554903 /* XCRemoteSwiftPackageReference "UserDefaultsService" */;
 			productName = UserDefaultsService;
+		};
+		6B7EE7532ABC2EC0002086D7 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B7EE7522ABC2EC0002086D7 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

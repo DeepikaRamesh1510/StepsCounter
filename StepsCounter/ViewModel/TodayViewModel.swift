@@ -54,7 +54,13 @@ class TodayViewModel: ObservableObject {
 		Task {
 			await healthKitManager.fetchTodaysStepCount()
 			userDefaultService.set(date, forKey: StepCounterUDKeys.todayStepCountLastRetreivedTime)
+			await uploadData()
 		}
+	}
+	
+	func uploadData() async {
+		let result = await StepCounterApiService().sendRequest(endpoint: StepCounterEndPoint.uploadSteps(StepsModel(name: "user1", stepsDate: "2023-09-10T18:19:08.725Z", stepsDateTime: "2023-09-10T18:19:08.725Z", stepsCount: 5, stepsTotalByDay: 10)), responseModel: StepsModel.self)
+		print(result)
 	}
 	
 	func stopTimer() {
