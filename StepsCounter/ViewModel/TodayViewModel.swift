@@ -24,9 +24,16 @@ class TodayViewModel: ObservableObject {
 	var timerPublisher = Timer.publish(every: 18000, on: .main, in: .default)
 	var timerCancellable: AnyCancellable? = nil
 	
-	init(healthKitManager: HealthKitManager, userDefaultsService: UserDefaultsService) {
+	var apiService: APIServiceProtocol
+	
+	init(
+		healthKitManager: HealthKitManager,
+		userDefaultsService: UserDefaultsService,
+		apiService: APIServiceProtocol
+	) {
 		self.healthKitManager = healthKitManager
 		self.userDefaultService = userDefaultsService
+		self.apiService = apiService
 		setup()
 	}
 	
@@ -59,7 +66,18 @@ class TodayViewModel: ObservableObject {
 	}
 	
 	func uploadData() async {
-		let result = await StepCounterApiService().sendRequest(endpoint: StepCounterEndPoint.uploadSteps(StepsModel(name: "user1", stepsDate: "2023-09-10T18:19:08.725Z", stepsDateTime: "2023-09-10T18:19:08.725Z", stepsCount: 5, stepsTotalByDay: 10)), responseModel: StepsModel.self)
+		let payload = StepsModel(
+			name: "user1",
+			stepsDate: "2023-09-10T18:19:08.725Z",
+			stepsDateTime: "2023-09-10T18:19:08.725Z",
+			stepsCount: 5,
+			stepsTotalByDay: 10
+		)
+		
+		let result = await apiService.sendRequest(
+			endpoint: StepCounterEndPoint.uploadSteps(payload),
+			responseModel: StepsModel.self
+		)
 		print(result)
 	}
 	

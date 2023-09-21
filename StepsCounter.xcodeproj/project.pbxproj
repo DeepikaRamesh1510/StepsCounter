@@ -27,6 +27,11 @@
 		6B7EE7502ABC2B69002086D7 /* StepCounterEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE74F2ABC2B69002086D7 /* StepCounterEndPoint.swift */; };
 		6B7EE7542ABC2EC0002086D7 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 6B7EE7532ABC2EC0002086D7 /* KeychainAccess */; };
 		6B7EE7562ABC32EA002086D7 /* StepsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7552ABC32EA002086D7 /* StepsModel.swift */; };
+		6B7EE7592ABC3F2B002086D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7582ABC3F2B002086D7 /* LoginView.swift */; };
+		6B7EE75B2ABC401D002086D7 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE75A2ABC401D002086D7 /* SessionService.swift */; };
+		6B7EE75D2ABCB185002086D7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE75C2ABCB185002086D7 /* LoginViewModel.swift */; };
+		6B7EE75F2ABCBAE9002086D7 /* AuthUploadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE75E2ABCBAE9002086D7 /* AuthUploadModel.swift */; };
+		6B7EE7612ABCBB86002086D7 /* AuthResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7602ABCBB86002086D7 /* AuthResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		6B7EE74D2ABC2A9B002086D7 /* StepCounterApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCounterApiService.swift; sourceTree = "<group>"; };
 		6B7EE74F2ABC2B69002086D7 /* StepCounterEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCounterEndPoint.swift; sourceTree = "<group>"; };
 		6B7EE7552ABC32EA002086D7 /* StepsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsModel.swift; sourceTree = "<group>"; };
+		6B7EE7582ABC3F2B002086D7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		6B7EE75A2ABC401D002086D7 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		6B7EE75C2ABCB185002086D7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		6B7EE75E2ABCBAE9002086D7 /* AuthUploadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUploadModel.swift; sourceTree = "<group>"; };
+		6B7EE7602ABCBB86002086D7 /* AuthResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,7 @@
 			children = (
 				6B0185DB2AB9220D00554903 /* ContentView.swift */,
 				6B0185F62AB92A7300554903 /* TabView */,
+				6B7EE7572ABC3F0C002086D7 /* LoginFlow */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,6 +159,7 @@
 			children = (
 				6B7EE7442ABC1A1F002086D7 /* TodayViewModel.swift */,
 				6B7EE7462ABC1A4D002086D7 /* StepsBaseViewModel.swift */,
+				6B7EE75C2ABCB185002086D7 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -156,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				6B7EE7552ABC32EA002086D7 /* StepsModel.swift */,
+				6B7EE75E2ABCBAE9002086D7 /* AuthUploadModel.swift */,
+				6B7EE7602ABCBB86002086D7 /* AuthResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,8 +206,17 @@
 			isa = PBXGroup;
 			children = (
 				6B7EE7492ABC2556002086D7 /* AppConstants.swift */,
+				6B7EE75A2ABC401D002086D7 /* SessionService.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		6B7EE7572ABC3F0C002086D7 /* LoginFlow */ = {
+			isa = PBXGroup;
+			children = (
+				6B7EE7582ABC3F2B002086D7 /* LoginView.swift */,
+			);
+			path = LoginFlow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,19 +298,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B7EE74C2ABC28A5002086D7 /* NetworkConstants.swift in Sources */,
+				6B7EE75F2ABCBAE9002086D7 /* AuthUploadModel.swift in Sources */,
 				6B0185F82AB92B9500554903 /* HistoryView.swift in Sources */,
 				6B0185EF2AB9268E00554903 /* TabbarView.swift in Sources */,
+				6B7EE7612ABCBB86002086D7 /* AuthResponseModel.swift in Sources */,
 				6B7EE7562ABC32EA002086D7 /* StepsModel.swift in Sources */,
 				6B7EE7502ABC2B69002086D7 /* StepCounterEndPoint.swift in Sources */,
 				6B0185FF2AB95F5B00554903 /* HealthKitManager.swift in Sources */,
 				6B7EE74A2ABC2556002086D7 /* AppConstants.swift in Sources */,
 				6B7EE7472ABC1A4D002086D7 /* StepsBaseViewModel.swift in Sources */,
+				6B7EE75D2ABCB185002086D7 /* LoginViewModel.swift in Sources */,
 				6B0185F12AB926C300554903 /* SettingsView.swift in Sources */,
 				6B7EE74E2ABC2A9B002086D7 /* StepCounterApiService.swift in Sources */,
 				6B0185DC2AB9220D00554903 /* ContentView.swift in Sources */,
+				6B7EE75B2ABC401D002086D7 /* SessionService.swift in Sources */,
 				6B0185F32AB926E700554903 /* StepsBaseView.swift in Sources */,
 				6B0185F52AB92A5500554903 /* TodayView.swift in Sources */,
 				6B0185DA2AB9220D00554903 /* StepsCounterApp.swift in Sources */,
+				6B7EE7592ABC3F2B002086D7 /* LoginView.swift in Sources */,
 				6B7EE7452ABC1A1F002086D7 /* TodayViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,8 +529,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DeepikaRamesh1510/UserDefaultsService.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 		6B7EE7522ABC2EC0002086D7 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {

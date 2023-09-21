@@ -10,10 +10,21 @@
 import SwiftUI
 
 struct ContentView: View {
+	@StateObject
+	var appSessionState: SessionService = SessionService(keychain: keychain)
 	
-    var body: some View {
-		TabbarView()
-    }
+	var body: some View {
+		NavigationView {
+			switch appSessionState.state {
+				case .login:
+					LoginView()
+				case .tabView:
+					TabbarView()
+			}
+		}
+		.navigationBarHidden(true)
+		.environmentObject(appSessionState)
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {

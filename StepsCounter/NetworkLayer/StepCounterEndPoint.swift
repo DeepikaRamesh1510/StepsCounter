@@ -31,7 +31,7 @@ extension Endpoint {
 }
 
 enum StepCounterEndPoint {
-	case login
+	case login(AuthUploadModel)
 	case uploadSteps(StepsModel)
 }
 
@@ -59,7 +59,7 @@ extension StepCounterEndPoint: Endpoint {
 		
 		if self.isAuthorizationRequired {
 			
-			guard let accessToken = keychain["JWToken"] else {
+			guard let accessToken = keychain["JWT"] else {
 				NotificationCenter.default.post(name: Notification.Name.unauthorized, object: nil)
 				return nil
 			}
@@ -83,8 +83,8 @@ extension StepCounterEndPoint: Endpoint {
 	
 	var body: [String: Any]? {
 		switch self {
-			case .login:
-				return nil
+			case .login(let authPayload):
+				return try? authPayload.asDictionary()
 			case .uploadSteps(let stepsUploadModel):
 				return try? stepsUploadModel.asDictionary()
 		}

@@ -19,7 +19,9 @@ let keychain = Keychain(service: AppConstant.bundleId)
 
 enum StepCounterUDKeys: String, UserDefaultsKeyProtocol {
 	var key: String { self.rawValue }
+	
 	case todayStepCountLastRetreivedTime
+	case appUser
 }
 
 
