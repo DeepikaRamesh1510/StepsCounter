@@ -19,9 +19,7 @@ struct StepsBaseView: View {
 	
 	@State
 	var stepsViewSegment : StepsViewSegment = .today
-	
-	@EnvironmentObject
-	var healthKitManager: HealthKitManager
+	var viewModel: StepsBaseViewModel = StepsBaseViewModel(healthKitManager: HealthKitManager.shared)
 	
 	var body: some View {
 		VStack {
@@ -43,7 +41,7 @@ struct StepsBaseView: View {
 			}
 			Spacer()
 		}.onAppear {
-			healthKitManager.requestAuthorization()
+			viewModel.requestAuthorization()
 		}
 	}
 	

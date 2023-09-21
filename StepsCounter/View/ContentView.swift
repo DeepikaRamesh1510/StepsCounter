@@ -10,11 +10,9 @@
 import SwiftUI
 
 struct ContentView: View {
-	@EnvironmentObject
-	var healthKitManager: HealthKitManager
 	
     var body: some View {
-		TabbarView().environmentObject(HealthKitManager.shared)
+		TabbarView()
     }
 }
 

@@ -19,6 +19,8 @@
 		6B0185FC2AB9582100554903 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B0185FB2AB9582100554903 /* HealthKit.framework */; };
 		6B0185FF2AB95F5B00554903 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0185FE2AB95F5B00554903 /* HealthKitManager.swift */; };
 		6B0186022AB9725800554903 /* UserDefaultsService in Frameworks */ = {isa = PBXBuildFile; productRef = 6B0186012AB9725800554903 /* UserDefaultsService */; };
+		6B7EE7452ABC1A1F002086D7 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7442ABC1A1F002086D7 /* TodayViewModel.swift */; };
+		6B7EE7472ABC1A4D002086D7 /* StepsBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7462ABC1A4D002086D7 /* StepsBaseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		6B0185F92AB9582100554903 /* StepsCounter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepsCounter.entitlements; sourceTree = "<group>"; };
 		6B0185FB2AB9582100554903 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		6B0185FE2AB95F5B00554903 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		6B7EE7442ABC1A1F002086D7 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
+		6B7EE7462ABC1A4D002086D7 /* StepsBaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsBaseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,8 @@
 		6B0185EB2AB9226E00554903 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				6B7EE7442ABC1A1F002086D7 /* TodayViewModel.swift */,
+				6B7EE7462ABC1A4D002086D7 /* StepsBaseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -244,11 +250,13 @@
 				6B0185F82AB92B9500554903 /* HistoryView.swift in Sources */,
 				6B0185EF2AB9268E00554903 /* TabbarView.swift in Sources */,
 				6B0185FF2AB95F5B00554903 /* HealthKitManager.swift in Sources */,
+				6B7EE7472ABC1A4D002086D7 /* StepsBaseViewModel.swift in Sources */,
 				6B0185F12AB926C300554903 /* SettingsView.swift in Sources */,
 				6B0185DC2AB9220D00554903 /* ContentView.swift in Sources */,
 				6B0185F32AB926E700554903 /* StepsBaseView.swift in Sources */,
 				6B0185F52AB92A5500554903 /* TodayView.swift in Sources */,
 				6B0185DA2AB9220D00554903 /* StepsCounterApp.swift in Sources */,
+				6B7EE7452ABC1A1F002086D7 /* TodayViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +389,8 @@
 				DEVELOPMENT_TEAM = H3K98GKZYH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the step count";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "To read the step count";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -411,6 +421,8 @@
 				DEVELOPMENT_TEAM = H3K98GKZYH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the step count";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "To read the step count";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
