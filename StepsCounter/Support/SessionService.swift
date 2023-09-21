@@ -68,4 +68,13 @@ class SessionService: ObservableObject {
 			return true
 		}
 	}
+	
+	func clearSession() {
+		keychain["JWT"] = nil
+		_appUser = nil
+		hasLoggedInSession = false
+		DispatchQueue.main.async {
+			self.state = .login
+		}
+	}
 }

@@ -55,6 +55,7 @@ struct LoginView: View {
 		.onAppear {
 			viewModel.setup(sessionService: appSessionState)
 		}
+		.navigationBarHidden(true)
 	}
 }
 

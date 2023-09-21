@@ -32,6 +32,7 @@
 		6B7EE75D2ABCB185002086D7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE75C2ABCB185002086D7 /* LoginViewModel.swift */; };
 		6B7EE75F2ABCBAE9002086D7 /* AuthUploadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE75E2ABCBAE9002086D7 /* AuthUploadModel.swift */; };
 		6B7EE7612ABCBB86002086D7 /* AuthResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7602ABCBB86002086D7 /* AuthResponseModel.swift */; };
+		6B7EE7662ABCF430002086D7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7652ABCF430002086D7 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		6B7EE75C2ABCB185002086D7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6B7EE75E2ABCBAE9002086D7 /* AuthUploadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUploadModel.swift; sourceTree = "<group>"; };
 		6B7EE7602ABCBB86002086D7 /* AuthResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseModel.swift; sourceTree = "<group>"; };
+		6B7EE7652ABCF430002086D7 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				6B7EE7442ABC1A1F002086D7 /* TodayViewModel.swift */,
 				6B7EE7462ABC1A4D002086D7 /* StepsBaseViewModel.swift */,
 				6B7EE75C2ABCB185002086D7 /* LoginViewModel.swift */,
+				6B7EE7652ABCF430002086D7 /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				6B0185DA2AB9220D00554903 /* StepsCounterApp.swift in Sources */,
 				6B7EE7592ABC3F2B002086D7 /* LoginView.swift in Sources */,
 				6B7EE7452ABC1A1F002086D7 /* TodayViewModel.swift in Sources */,
+				6B7EE7662ABCF430002086D7 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
