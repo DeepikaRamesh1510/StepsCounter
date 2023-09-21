@@ -10,14 +10,24 @@
 import SwiftUI
 import HealthKit
 import Combine
+import UserDefaultsService
 
 struct TodayView: View {
 	
 	@ObservedObject
-	var viewModel: TodayViewModel = TodayViewModel(healthKitManager: HealthKitManager.shared)
+	var viewModel: TodayViewModel = TodayViewModel(
+		healthKitManager: HealthKitManager.shared,
+		userDefaultsService: UserDefaultsService.shared
+	)
 	
     var body: some View {
 		Text("Steps count: \(Int(self.viewModel.steps))")
+			.onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+				viewModel.updateView()
+			}
+			.onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+				viewModel.stopTimer()
+			}
 	}
 }
 
