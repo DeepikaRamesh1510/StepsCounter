@@ -11,34 +11,6 @@ import Foundation
 import HealthKit
 import Combine
 
-enum StepCounterError: Error {
-	case healthkitUnAuthorized
-	case unableToFetchHealthData
-}
-
-struct DateHelper {
-	
-	static var calendar: Calendar { return Calendar.current }
-	
-	static var currentDate: Date { return Date() }
-	
-	static var startOfToday: Date {
-		return calendar.startOfDay(for: Date())
-	}
-	
-	static var startOfWeek: Date {
-		
-		return calendar.date(from: calendar.dateComponents(
-			[.yearForWeekOfYear, .weekOfYear],
-			from: startOfToday)
-		) ?? Date()
-	}
-	
-	static var endOfWeek: Date {
-		return calendar.date(byAdding: .day, value: 7, to: startOfWeek) ?? Date()
-	}
-}
-
 
 class HealthKitManager: ObservableObject {
 	

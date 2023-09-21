@@ -11,10 +11,6 @@ import Foundation
 import Combine
 import UserDefaultsService
 
-enum StepCounterUDKeys: String, UserDefaultsKeyProtocol {
-	var key: String { self.rawValue }
-	case todayStepCountLastRetreivedTime
-}
 
 class TodayViewModel: ObservableObject {
 	
