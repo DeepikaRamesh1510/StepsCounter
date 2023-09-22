@@ -53,7 +53,7 @@ class HealthKitManager: ObservableObject {
 	
 	func fetchMonthData() async {
 		self.thisMonthSteps = Array(repeating: (0, 0, 0), count: 30)
-		let endDate = DateHelper.currentDate
+		let endDate = DateHelper.endOfToday
 		let startDate = DateHelper.calendar.date(byAdding: .day, value: -30, to: DateHelper.startOfToday)!
 		
 		let predicate = HKQuery.predicateForSamples(
