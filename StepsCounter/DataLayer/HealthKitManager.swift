@@ -14,14 +14,21 @@ import Combine
 
 class HealthKitManager: ObservableObject {
 	
-	
 	static let shared = HealthKitManager()
 	
 	var healthStore = HKHealthStore()
 	@Published
 	var stepCountToday: Double = 0
 	@Published
-	var thisWeekSteps: [Int] = Array(repeating: 0, count: 7)
+	var todayHourlyStepCount: [Double] = []
+	
+	@Published
+	var thisWeekSteps: [(Double, Int, Int)] = Array(repeating: (0, 0, 0), count: 7)
+	
+	var weeksResult: HKStatisticsCollection? = nil
+	
+	@Published
+	var thisMonthSteps: [(Double, Int, Int)] = Array(repeating: (0, 0, 0), count: 30)
 	
 	func requestAuthorization() {
 		
@@ -44,68 +51,134 @@ class HealthKitManager: ObservableObject {
 		}
 	}
 	
-	func fetchWeeksData() {
-			//		let stepCountType = HKObjectType.quantityType(forIdentifier: .stepCount)!
-			//		let status = healthStore.authorizationStatus(for: stepCountType)
-			//
-			////		switch status {
-			////			case .notDetermined:
-			////				requestAuthorization()
-			////			case .sharingDenied:
-			////				break
-			////			case .sharingAuthorized:
-			//				let calendar = Calendar.current
-			//				let today = calendar.startOfDay(for: Date())
-			//
-			//					// Find the start date (Monday) of the current week
-			//				guard let startOfWeek =  else {
-			//					print("Failed to calculate the start date of the week.")
-			//					return
-			//				}
-			//
-			//					// Find the end date (Sunday) of the current week
-			//				guard let endOfWeek = calendar.date(byAdding: .day, value: 6, to: startOfWeek) else {
-			//					print("Failed to calculate the end date of the week.")
-			//					return
-			//				}
-			//
-			//				let predicate = HKQuery.predicateForSamples(
-			//					withStart: startOfWeek,
-			//					end: endOfWeek,
-			//					options: .strictStartDate
-			//				)
-			//
-			//				let query = HKStatisticsCollectionQuery(
-			//					quantityType: stepCountType,
-			//					quantitySamplePredicate: predicate,
-			//					options: .cumulativeSum, // fetch the sum of steps for each day
-			//					anchorDate: startOfWeek,
-			//					intervalComponents: DateComponents(day: 1) // interval to make sure the sum is per 1 day
-			//				)
-			//
-			//				query.initialResultsHandler = { _, result, error in
-			//					guard let result = result else {
-			//						if let error = error {
-			//							print("An error occurred while retrieving step count: \(error.localizedDescription)")
-			//						}
-			//						return
-			//					}
-			//
-			//					result.enumerateStatistics(from: startOfWeek, to: endOfWeek) { statistics, _ in
-			//						if let quantity = statistics.sumQuantity() {
-			//							let steps = Int(quantity.doubleValue(for: HKUnit.count()))
-			//							let day = calendar.component(.weekday, from: statistics.startDate)
-			//							DispatchQueue.main.async {
-			//								self.thisWeekSteps[day - 1] = steps
-			//							}
-			//						}
-			//					}
-			//				}
-			//
-			//				healthStore.execute(query)
-			////			@unknown default:
-			////				break
-			////		}
+	func fetchMonthData() async {
+		self.thisMonthSteps = Array(repeating: (0, 0, 0), count: 30)
+		let endDate = DateHelper.currentDate
+		let startDate = DateHelper.calendar.date(byAdding: .day, value: -30, to: DateHelper.startOfToday)!
+		
+		let predicate = HKQuery.predicateForSamples(
+			withStart: startDate,
+			end: endDate
+		)
+		
+		let stepType = HKQuantityType(.stepCount)
+		let stepsMonth = HKSamplePredicate.quantitySample(type: stepType, predicate: predicate)
+		
+		let sumOfStepsQuery = HKStatisticsCollectionQueryDescriptor(
+			predicate: stepsMonth,
+			options: .cumulativeSum,
+			anchorDate: endDate,
+			intervalComponents: DateComponents(day: 1)
+		)
+		
+		do {
+			let stepCounts = try await sumOfStepsQuery.result(for: self.healthStore)
+			stepCounts.enumerateStatistics(from: startDate, to: endDate) { statistics, _ in
+				
+				let day = DateHelper.calendar.component(.weekday, from: statistics.startDate)
+				let date = DateHelper.calendar.component(.day, from: statistics.startDate)
+				let month = DateHelper.calendar.component(.month, from: statistics.startDate)
+				
+				if let quantity = statistics.sumQuantity() {
+					let steps = quantity.doubleValue(for: HKUnit.count())
+					self.thisMonthSteps[day - 1] = (steps, month, date)
+				} else {
+					self.thisMonthSteps[day - 1] = (0, month, date)
+				}
+			}
+			
+		} catch {
+			print(error.localizedDescription)
+		}
+	}
+	
+		//	func fetchWeeksData() async {
+		//		thisWeekSteps = []
+		//		let endDate = DateHelper.calendar.date(byAdding: .day, value: 1, to: DateHelper.startOfToday)
+		//		let startDate = DateHelper.calendar.date(
+		//			byAdding: .day,
+		//			value: -7, to: DateHelper.startOfToday
+		//		)!
+		//
+		//		let predicate = HKQuery.predicateForSamples(
+		//			withStart: startDate,
+		//			end: endDate,
+		//			options: [.strictStartDate]
+		//		)
+		//
+		//		let stepType = HKQuantityType(.stepCount)
+		//		let stepsWeek = HKSamplePredicate.quantitySample(type: stepType, predicate: predicate)
+		//
+		//		let sumOfStepsQuery = HKStatisticsCollectionQueryDescriptor(
+		//			predicate: stepsWeek,
+		//			options: .cumulativeSum,
+		//			anchorDate: endDate,
+		//			intervalComponents: DateComponents(day: 1)
+		//		)
+		//
+		//		do {
+		//			weeksResult = try await sumOfStepsQuery.result(for: self.healthStore)
+		//			print("for week", weeksResult)
+		//			weeksResult?.enumerateStatistics(from: startDate, to: endDate) { statistics, _ in
+		//				print("for week enumerating", self.weeksResult)
+		//				if let quantity = statistics.sumQuantity() {
+		//					print("for week enumerating", self.weeksResult)
+		//					let steps = quantity.doubleValue(for: HKUnit.count())
+		//					let day = DateHelper.calendar.component(.weekday, from: statistics.startDate)
+		//					self.thisWeekSteps[day - 1] = steps
+		//					print(self.thisWeekSteps)
+		//				} else {
+		//					print("Not found")
+		//				}
+		//			}
+		//		} catch {
+		//			thisWeekSteps = []
+		//		}
+		//	}
+	
+	func fetchWeeksData() async {
+		self.thisWeekSteps = Array(repeating: (0, 0, 0), count: 7)
+		
+		let endDate = DateHelper.currentDate
+		let startDate = DateHelper.calendar.date(
+			byAdding: .day,
+			value: -7, to: DateHelper.startOfToday
+		)!
+		
+		let predicate = HKQuery.predicateForSamples(
+			withStart: startDate,
+			end: endDate,
+			options: [.strictStartDate]
+		)
+		
+		let stepType = HKQuantityType(.stepCount)
+		let stepsWeek = HKSamplePredicate.quantitySample(type: stepType, predicate: predicate)
+		
+		let sumOfStepsQuery = HKStatisticsCollectionQueryDescriptor(
+			predicate: stepsWeek,
+			options: .cumulativeSum,
+			anchorDate: endDate,
+			intervalComponents: DateComponents(day: 1)
+		)
+		
+		do {
+			weeksResult = try await sumOfStepsQuery.result(for: self.healthStore)
+			
+			weeksResult?.enumerateStatistics(from: startDate, to: endDate) { statistics, _ in
+				
+				let day = DateHelper.calendar.component(.weekday, from: statistics.startDate)
+				let date = DateHelper.calendar.component(.day, from: statistics.startDate)
+				let month = DateHelper.calendar.component(.month, from: statistics.startDate)
+				if let quantity = statistics.sumQuantity() {
+					let steps = quantity.doubleValue(for: HKUnit.count())
+					self.thisWeekSteps[day - 1] = (steps, month, date)
+				} else {
+					self.thisWeekSteps[day - 1] = (0, month, date)
+				}
+			}
+		} catch {
+			print(error.localizedDescription)
+		}
 	}
 	
 	func fetchTodaysStepCount() async {
@@ -119,15 +192,13 @@ class HealthKitManager: ObservableObject {
 		let stepsToday = HKSamplePredicate.quantitySample(type: stepType, predicate: predicate)
 		let sumOfStepsQuery = HKStatisticsQueryDescriptor(predicate: stepsToday, options: .cumulativeSum)
 		
-		Task {
-			do {
-				let stepCount = try await sumOfStepsQuery.result(for: self.healthStore)?
-					.sumQuantity()?
-					.doubleValue(for: HKUnit.count())
-				stepCountToday = stepCount ?? 0
-			} catch {
-				stepCountToday = 0
-			}
+		do {
+			let stepCount = try await sumOfStepsQuery.result(for: self.healthStore)?
+				.sumQuantity()?
+				.doubleValue(for: HKUnit.count())
+			stepCountToday = stepCount ?? 0
+		} catch {
+			stepCountToday = 0
 		}
 		
 	}

@@ -10,9 +10,11 @@
 import Foundation
 import KeychainAccess
 import UserDefaultsService
+import SwiftUICharts
 
 struct AppConstant {
 	static var bundleId: String { Bundle.main.bundleIdentifier ?? "StepsCounter" }
+	static var legend: Legend = Legend(color: .blue, label: "StepCount", order: 1)
 }
 
 let keychain = Keychain(service: AppConstant.bundleId)
