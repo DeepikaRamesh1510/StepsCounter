@@ -114,7 +114,7 @@ class TodayViewModel: ObservableObject {
 		let date = Date()
 		let dateString = dateFormatter.string(from: date)
 		let payload = StepsUploadModel(
-			name: sessionService?.appUser.username ?? "",
+			name: sessionService?.appUser?.username ?? "",
 			stepsDate: dateString,
 			stepsDateTime: dateString,
 			stepsCount: Int(steps),

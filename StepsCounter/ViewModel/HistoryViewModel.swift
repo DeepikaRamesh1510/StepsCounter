@@ -76,6 +76,12 @@ class HistoryViewModel: ObservableObject {
 	
 	func switchView(_ historyType: HistoryType) {
 		self.historyType = historyType
+		switch historyType {
+			case .seven:
+				fetchLastSevenDaysHistory()
+			case .thirty:
+				fetchLast30DaysHistory()
+		}
 	}
 	
 	func fetchLastSevenDaysHistory() {

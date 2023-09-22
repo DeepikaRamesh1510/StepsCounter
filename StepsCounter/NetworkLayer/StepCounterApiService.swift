@@ -53,6 +53,8 @@ extension APIServiceProtocol {
 						return .failure(.decode)
 					}
 					return .success(decodedResponse)
+				case 400:
+					return .failure(.badRequest)
 				case 401:
 					return .failure(.unauthorized)
 				default:

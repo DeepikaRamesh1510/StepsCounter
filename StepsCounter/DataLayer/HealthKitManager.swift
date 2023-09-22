@@ -95,7 +95,7 @@ class HealthKitManager: ObservableObject {
 	func fetchWeeksData() async {
 		self.thisWeekSteps = Array(repeating: (0, 0, 0), count: 7)
 		
-		let endDate = DateHelper.currentDate
+		let endDate = DateHelper.endOfToday
 		let startDate = DateHelper.calendar.date(
 			byAdding: .day,
 			value: -7, to: DateHelper.startOfToday
@@ -113,7 +113,7 @@ class HealthKitManager: ObservableObject {
 		let sumOfStepsQuery = HKStatisticsCollectionQueryDescriptor(
 			predicate: stepsWeek,
 			options: .cumulativeSum,
-			anchorDate: endDate,
+			anchorDate: startDate,
 			intervalComponents: DateComponents(day: 1)
 		)
 		
@@ -140,16 +140,12 @@ class HealthKitManager: ObservableObject {
 	func fetchTodayHourlyData() async {
 		self.todayHourlyStepCount = Array(repeating: 0, count: 24)
 		
-		let endDate = DateHelper.calendar.date(
-			byAdding: .day,
-			value: 1, to: DateHelper.startOfToday
-		)!
+		let endDate = DateHelper.endOfToday
 		let startDate =  DateHelper.startOfToday
 		
 		let predicate = HKQuery.predicateForSamples(
 			withStart: startDate,
-			end: endDate,
-			options: [.strictStartDate]
+			end: endDate
 		)
 		
 		let stepType = HKQuantityType(.stepCount)
@@ -164,16 +160,14 @@ class HealthKitManager: ObservableObject {
 		
 		do {
 			weeksResult = try await sumOfStepsQuery.result(for: self.healthStore)
-			
+		
 			weeksResult?.enumerateStatistics(from: startDate, to: endDate) { statistics, _ in
 				
-				let hour = DateHelper.calendar.component(.hour, from: statistics.startDate)
+				let hour = (DateHelper.calendar.component(.hour, from: statistics.startDate) + 1) % 24
 				
 				if let quantity = statistics.sumQuantity() {
 					let steps = quantity.doubleValue(for: HKUnit.count())
 					self.todayHourlyStepCount[hour] = steps
-				} else {
-					self.todayHourlyStepCount[hour] = 0
 				}
 			}
 		} catch {

@@ -42,6 +42,13 @@ struct DateHelper {
 		return calendar.startOfDay(for: Date())
 	}
 	
+	static var endOfToday: Date {
+		var components = DateComponents()
+		components.day = 1
+		components.second = -1
+		return Calendar.current.date(byAdding: components, to: startOfToday)!
+	}
+	
 	static var startOfWeek: Date {
 		
 		return calendar.date(from: calendar.dateComponents(

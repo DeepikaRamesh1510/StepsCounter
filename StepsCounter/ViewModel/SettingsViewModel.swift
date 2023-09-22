@@ -20,8 +20,8 @@ class SettingsViewModel: ObservableObject {
 	
 	func setup(sessionService: SessionService) {
 		self.sessionService = sessionService
-		userName = sessionService.appUser.username
-		email = sessionService.appUser.email
+		userName = sessionService.appUser?.username ?? "AppUser"
+		email = sessionService.appUser?.email ?? "AppUser"
 	}
 	
 	func logout() {

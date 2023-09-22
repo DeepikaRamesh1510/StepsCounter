@@ -32,9 +32,8 @@ class SessionService: ObservableObject {
 	var hasLoggedInSession: Bool
 	
 	@CodableUserDefault<User?>(key: StepCounterUDKeys.appUser, defaultValue: nil)
-	private var _appUser: User?
+	var appUser: User?
 	
-	var appUser: User! { return _appUser }
 	var keychain: Keychain
 	
 	init(keychain: Keychain) {
@@ -55,9 +54,9 @@ class SessionService: ObservableObject {
 	
 	func setupSession(with authResponse: AuthResponseModel) -> Bool {
 		keychain["JWT"] = authResponse.jwt
-		_appUser = authResponse.user
+		appUser = authResponse.user
 		
-		if _appUser == nil || keychain["JWT"] == nil {
+		if appUser == nil || keychain["JWT"] == nil {
 			return false
 		} else {
 			hasLoggedInSession = true
@@ -71,7 +70,7 @@ class SessionService: ObservableObject {
 	
 	func clearSession() {
 		keychain["JWT"] = nil
-		_appUser = nil
+		appUser = nil
 		hasLoggedInSession = false
 		DispatchQueue.main.async {
 			self.state = .login

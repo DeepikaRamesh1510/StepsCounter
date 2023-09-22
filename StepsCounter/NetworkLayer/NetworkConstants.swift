@@ -18,6 +18,7 @@ enum RequestMethod: String {
 enum NetworkError: Error {
 	case decode
 	case unauthorized
+	case badRequest
 	case custom(String)
 	
 	var description: String {
@@ -28,6 +29,8 @@ enum NetworkError: Error {
 				return "Session expired"
 			case .custom(let msg):
 				return msg
+			case .badRequest:
+				return "Invalid payload"
 		}
 	}
 }

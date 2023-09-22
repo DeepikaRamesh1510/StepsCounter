@@ -54,10 +54,15 @@ class LoginViewModel: ObservableObject  {
 						self.isLoggingIn = false
 						self.errMsg = "Unable to setup session"
 					}
-				case .failure(let err):
+				case .failure(let failure):
 					DispatchQueue.main.async {
 						self.isLoggingIn = false
-						self.errMsg = err.localizedDescription
+						switch failure {
+							case .badRequest:
+								self.errMsg = "Invalid username / password"
+							default:
+								self.errMsg = "Unable to login!"
+						}
 					}
 			}
 		}
