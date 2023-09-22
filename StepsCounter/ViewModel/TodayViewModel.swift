@@ -10,6 +10,7 @@
 import Foundation
 import Combine
 import UserDefaultsService
+import SwiftUICharts
 
 
 class TodayViewModel: ObservableObject {
@@ -18,6 +19,10 @@ class TodayViewModel: ObservableObject {
 	
 	@Published
 	var steps: Double = 0
+	
+	@Published
+	var hourlyDataPoints: [DataPoint] = []
+	
 	var cancellable: Set<AnyCancellable> = []
 	var userDefaultService: UserDefaultsService
 	
@@ -42,6 +47,19 @@ class TodayViewModel: ObservableObject {
 			.receive(on: DispatchQueue.main)
 			.assign(to: \.steps, on: self)
 			.store(in: &cancellable)
+		
+		self.healthKitManager.$todayHourlyStepCount
+			.receive(on: DispatchQueue.main)
+			.map { steps in
+				var result: [DataPoint] = []
+				for i in (0..<steps.count) {
+					result.append(DataPoint(value: steps[i], label: "", legend: AppConstant.legend))
+				}
+				
+				return result
+			}
+			.assign(to: \.hourlyDataPoints, on: self)
+			.store(in: &cancellable)
 		updateView()
 	}
 	
@@ -60,6 +78,7 @@ class TodayViewModel: ObservableObject {
 	func fetchTodaysStepCount(_ date: Date) {
 		Task {
 			await healthKitManager.fetchTodaysStepCount()
+			await healthKitManager.fetchTodayHourlyData()
 			userDefaultService.set(date, forKey: StepCounterUDKeys.todayStepCountLastRetreivedTime)
 			await uploadData()
 		}
