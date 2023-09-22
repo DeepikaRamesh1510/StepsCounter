@@ -1,13 +1,14 @@
-//
-//  StepsBaseView.swift
-//  StepsCounter
-//
-//  Created by Deepika Ramesh on 9/18/23.
-//
+	//
+	//  StepsBaseView.swift
+	//  StepsCounter
+	//
+	//  Created by Deepika Ramesh on 9/18/23.
+	//
 
 
 
 import SwiftUI
+import HealthKit
 
 enum StepsViewSegment : String, CaseIterable {
 	case today = "Today"
@@ -15,7 +16,10 @@ enum StepsViewSegment : String, CaseIterable {
 }
 
 struct StepsBaseView: View {
-	@State var stepsViewSegment : StepsViewSegment = .today
+	
+	@State
+	var stepsViewSegment : StepsViewSegment = .today
+	var viewModel: StepsBaseViewModel = StepsBaseViewModel(healthKitManager: HealthKitManager.shared)
 	
 	var body: some View {
 		VStack {
@@ -36,12 +40,16 @@ struct StepsBaseView: View {
 					HistoryView()
 			}
 			Spacer()
+		}.onAppear {
+			viewModel.requestAuthorization()
 		}
 	}
+	
+	
 }
 
 struct StepsBaseView_Previews: PreviewProvider {
-    static var previews: some View {
-        StepsBaseView()
-    }
+	static var previews: some View {
+		StepsBaseView()
+	}
 }

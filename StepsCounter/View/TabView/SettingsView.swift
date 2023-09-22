@@ -10,9 +10,33 @@
 import SwiftUI
 
 struct SettingsView: View {
-	var userName: String = "Test user"
+	
+	@EnvironmentObject
+	var sessionService: SessionService
+	
+	@ObservedObject
+	var viewModel: SettingsViewModel = SettingsViewModel()
+	
     var body: some View {
-        Text(userName)
+		VStack {
+			Spacer()
+			Text(viewModel.userName)
+				.font(.largeTitle)
+			Text(viewModel.email)
+				.font(.subheadline)
+			Spacer()
+				.frame(height: 50)
+			Button("Logout") {
+				viewModel.logout()
+			}
+			.buttonStyle(.borderedProminent)
+			.tint(.red)
+			Spacer()
+		}
+		.navigationBarHidden(true)
+		.onAppear {
+			viewModel.setup(sessionService: sessionService)
+		}
     }
 }
 

@@ -21,6 +21,7 @@ struct TabbarView: View {
 					Label("Settings", systemImage: "gear")
 				}
 		}
+		.navigationBarHidden(true)
     }
 }
 

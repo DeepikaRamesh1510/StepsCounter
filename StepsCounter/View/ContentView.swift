@@ -10,13 +10,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-       TabbarView()
-    }
+	@StateObject
+	var appSessionState: SessionService = SessionService(keychain: keychain)
+	
+	var body: some View {
+		switch appSessionState.state {
+			case .login:
+				LoginView()
+					.environmentObject(appSessionState)
+			case .tabView:
+				TabbarView()
+					.environmentObject(appSessionState)
+		}
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+	static var previews: some View {
+		ContentView()
+	}
 }

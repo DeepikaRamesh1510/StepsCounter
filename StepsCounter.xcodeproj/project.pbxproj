@@ -17,6 +17,27 @@
 		6B0185F52AB92A5500554903 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0185F42AB92A5500554903 /* TodayView.swift */; };
 		6B0185F82AB92B9500554903 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0185F72AB92B9500554903 /* HistoryView.swift */; };
 		6B0185FC2AB9582100554903 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B0185FB2AB9582100554903 /* HealthKit.framework */; };
+		6B0185FF2AB95F5B00554903 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0185FE2AB95F5B00554903 /* HealthKitManager.swift */; };
+		6B0186022AB9725800554903 /* UserDefaultsService in Frameworks */ = {isa = PBXBuildFile; productRef = 6B0186012AB9725800554903 /* UserDefaultsService */; };
+		6B7EE7452ABC1A1F002086D7 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7442ABC1A1F002086D7 /* TodayViewModel.swift */; };
+		6B7EE7472ABC1A4D002086D7 /* StepsBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7462ABC1A4D002086D7 /* StepsBaseViewModel.swift */; };
+		6B7EE74A2ABC2556002086D7 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7492ABC2556002086D7 /* AppConstants.swift */; };
+		6B7EE74C2ABC28A5002086D7 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE74B2ABC28A5002086D7 /* NetworkConstants.swift */; };
+		6B7EE74E2ABC2A9B002086D7 /* StepCounterApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE74D2ABC2A9B002086D7 /* StepCounterApiService.swift */; };
+		6B7EE7502ABC2B69002086D7 /* StepCounterEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE74F2ABC2B69002086D7 /* StepCounterEndPoint.swift */; };
+		6B7EE7542ABC2EC0002086D7 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 6B7EE7532ABC2EC0002086D7 /* KeychainAccess */; };
+		6B7EE7562ABC32EA002086D7 /* StepsUploadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7552ABC32EA002086D7 /* StepsUploadModel.swift */; };
+		6B7EE7592ABC3F2B002086D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7582ABC3F2B002086D7 /* LoginView.swift */; };
+		6B7EE75B2ABC401D002086D7 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE75A2ABC401D002086D7 /* SessionService.swift */; };
+		6B7EE75D2ABCB185002086D7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE75C2ABCB185002086D7 /* LoginViewModel.swift */; };
+		6B7EE75F2ABCBAE9002086D7 /* AuthUploadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE75E2ABCBAE9002086D7 /* AuthUploadModel.swift */; };
+		6B7EE7612ABCBB86002086D7 /* AuthResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7602ABCBB86002086D7 /* AuthResponseModel.swift */; };
+		6B7EE7662ABCF430002086D7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7652ABCF430002086D7 /* SettingsViewModel.swift */; };
+		6B7EE7682ABCFB8C002086D7 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7672ABCFB8C002086D7 /* HistoryViewModel.swift */; };
+		6B7EE76B2ABCFD8E002086D7 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6B7EE76A2ABCFD8E002086D7 /* SwiftUICharts */; };
+		6B7EE76E2ABD61B5002086D7 /* CustomProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE76D2ABD61B5002086D7 /* CustomProgressViewStyle.swift */; };
+		6B7EE7712ABD6C26002086D7 /* StepsCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE76F2ABD6C26002086D7 /* StepsCounter.xcdatamodeld */; };
+		6B7EE7732ABD6E9E002086D7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7722ABD6E9E002086D7 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +53,24 @@
 		6B0185F72AB92B9500554903 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		6B0185F92AB9582100554903 /* StepsCounter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepsCounter.entitlements; sourceTree = "<group>"; };
 		6B0185FB2AB9582100554903 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		6B0185FE2AB95F5B00554903 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		6B7EE7442ABC1A1F002086D7 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
+		6B7EE7462ABC1A4D002086D7 /* StepsBaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsBaseViewModel.swift; sourceTree = "<group>"; };
+		6B7EE7492ABC2556002086D7 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		6B7EE74B2ABC28A5002086D7 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		6B7EE74D2ABC2A9B002086D7 /* StepCounterApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCounterApiService.swift; sourceTree = "<group>"; };
+		6B7EE74F2ABC2B69002086D7 /* StepCounterEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCounterEndPoint.swift; sourceTree = "<group>"; };
+		6B7EE7552ABC32EA002086D7 /* StepsUploadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUploadModel.swift; sourceTree = "<group>"; };
+		6B7EE7582ABC3F2B002086D7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		6B7EE75A2ABC401D002086D7 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		6B7EE75C2ABCB185002086D7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		6B7EE75E2ABCBAE9002086D7 /* AuthUploadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUploadModel.swift; sourceTree = "<group>"; };
+		6B7EE7602ABCBB86002086D7 /* AuthResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseModel.swift; sourceTree = "<group>"; };
+		6B7EE7652ABCF430002086D7 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		6B7EE7672ABCFB8C002086D7 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		6B7EE76D2ABD61B5002086D7 /* CustomProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressViewStyle.swift; sourceTree = "<group>"; };
+		6B7EE7702ABD6C26002086D7 /* StepsCounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StepsCounter.xcdatamodel; sourceTree = "<group>"; };
+		6B7EE7722ABD6E9E002086D7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +79,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B0185FC2AB9582100554903 /* HealthKit.framework in Frameworks */,
+				6B7EE76B2ABCFD8E002086D7 /* SwiftUICharts in Frameworks */,
+				6B0186022AB9725800554903 /* UserDefaultsService in Frameworks */,
+				6B7EE7542ABC2EC0002086D7 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +116,7 @@
 				6B0185EA2AB9226400554903 /* NetworkLayer */,
 				6B0185ED2AB9229C00554903 /* DataLayer */,
 				6B0185E92AB9224B00554903 /* Assets */,
+				6B7EE7482ABC253A002086D7 /* Support */,
 				6B0185DF2AB9221400554903 /* Preview Content */,
 			);
 			path = StepsCounter;
@@ -92,6 +135,8 @@
 			children = (
 				6B0185DB2AB9220D00554903 /* ContentView.swift */,
 				6B0185F62AB92A7300554903 /* TabView */,
+				6B7EE7572ABC3F0C002086D7 /* LoginFlow */,
+				6B7EE76C2ABD616D002086D7 /* SupplementaryView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,6 +160,9 @@
 		6B0185EA2AB9226400554903 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				6B7EE74B2ABC28A5002086D7 /* NetworkConstants.swift */,
+				6B7EE74D2ABC2A9B002086D7 /* StepCounterApiService.swift */,
+				6B7EE74F2ABC2B69002086D7 /* StepCounterEndPoint.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -122,6 +170,11 @@
 		6B0185EB2AB9226E00554903 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				6B7EE7442ABC1A1F002086D7 /* TodayViewModel.swift */,
+				6B7EE7462ABC1A4D002086D7 /* StepsBaseViewModel.swift */,
+				6B7EE75C2ABCB185002086D7 /* LoginViewModel.swift */,
+				6B7EE7652ABCF430002086D7 /* SettingsViewModel.swift */,
+				6B7EE7672ABCFB8C002086D7 /* HistoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -129,6 +182,9 @@
 		6B0185EC2AB9229100554903 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6B7EE7552ABC32EA002086D7 /* StepsUploadModel.swift */,
+				6B7EE75E2ABCBAE9002086D7 /* AuthUploadModel.swift */,
+				6B7EE7602ABCBB86002086D7 /* AuthResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,6 +192,9 @@
 		6B0185ED2AB9229C00554903 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				6B0185FE2AB95F5B00554903 /* HealthKitManager.swift */,
+				6B7EE76F2ABD6C26002086D7 /* StepsCounter.xcdatamodeld */,
+				6B7EE7722ABD6E9E002086D7 /* DataController.swift */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -160,6 +219,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6B7EE7482ABC253A002086D7 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				6B7EE7492ABC2556002086D7 /* AppConstants.swift */,
+				6B7EE75A2ABC401D002086D7 /* SessionService.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		6B7EE7572ABC3F0C002086D7 /* LoginFlow */ = {
+			isa = PBXGroup;
+			children = (
+				6B7EE7582ABC3F2B002086D7 /* LoginView.swift */,
+			);
+			path = LoginFlow;
+			sourceTree = "<group>";
+		};
+		6B7EE76C2ABD616D002086D7 /* SupplementaryView */ = {
+			isa = PBXGroup;
+			children = (
+				6B7EE76D2ABD61B5002086D7 /* CustomProgressViewStyle.swift */,
+			);
+			path = SupplementaryView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,6 +260,11 @@
 			dependencies = (
 			);
 			name = StepsCounter;
+			packageProductDependencies = (
+				6B0186012AB9725800554903 /* UserDefaultsService */,
+				6B7EE7532ABC2EC0002086D7 /* KeychainAccess */,
+				6B7EE76A2ABCFD8E002086D7 /* SwiftUICharts */,
+			);
 			productName = StepsCounter;
 			productReference = 6B0185D62AB9220D00554903 /* StepsCounter.app */;
 			productType = "com.apple.product-type.application";
@@ -204,6 +293,11 @@
 				Base,
 			);
 			mainGroup = 6B0185CD2AB9220C00554903;
+			packageReferences = (
+				6B0186002AB9725700554903 /* XCRemoteSwiftPackageReference "UserDefaultsService" */,
+				6B7EE7522ABC2EC0002086D7 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				6B7EE7692ABCFD8E002086D7 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
+			);
 			productRefGroup = 6B0185D72AB9220D00554903 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -230,13 +324,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B7EE74C2ABC28A5002086D7 /* NetworkConstants.swift in Sources */,
+				6B7EE75F2ABCBAE9002086D7 /* AuthUploadModel.swift in Sources */,
 				6B0185F82AB92B9500554903 /* HistoryView.swift in Sources */,
+				6B7EE76E2ABD61B5002086D7 /* CustomProgressViewStyle.swift in Sources */,
 				6B0185EF2AB9268E00554903 /* TabbarView.swift in Sources */,
+				6B7EE7612ABCBB86002086D7 /* AuthResponseModel.swift in Sources */,
+				6B7EE7562ABC32EA002086D7 /* StepsUploadModel.swift in Sources */,
+				6B7EE7502ABC2B69002086D7 /* StepCounterEndPoint.swift in Sources */,
+				6B0185FF2AB95F5B00554903 /* HealthKitManager.swift in Sources */,
+				6B7EE74A2ABC2556002086D7 /* AppConstants.swift in Sources */,
+				6B7EE7472ABC1A4D002086D7 /* StepsBaseViewModel.swift in Sources */,
+				6B7EE7732ABD6E9E002086D7 /* DataController.swift in Sources */,
+				6B7EE75D2ABCB185002086D7 /* LoginViewModel.swift in Sources */,
 				6B0185F12AB926C300554903 /* SettingsView.swift in Sources */,
+				6B7EE74E2ABC2A9B002086D7 /* StepCounterApiService.swift in Sources */,
+				6B7EE7682ABCFB8C002086D7 /* HistoryViewModel.swift in Sources */,
 				6B0185DC2AB9220D00554903 /* ContentView.swift in Sources */,
+				6B7EE7712ABD6C26002086D7 /* StepsCounter.xcdatamodeld in Sources */,
+				6B7EE75B2ABC401D002086D7 /* SessionService.swift in Sources */,
 				6B0185F32AB926E700554903 /* StepsBaseView.swift in Sources */,
 				6B0185F52AB92A5500554903 /* TodayView.swift in Sources */,
 				6B0185DA2AB9220D00554903 /* StepsCounterApp.swift in Sources */,
+				6B7EE7592ABC3F2B002086D7 /* LoginView.swift in Sources */,
+				6B7EE7452ABC1A1F002086D7 /* TodayViewModel.swift in Sources */,
+				6B7EE7662ABCF430002086D7 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +481,8 @@
 				DEVELOPMENT_TEAM = H3K98GKZYH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the step count";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "To read the step count";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -399,6 +513,8 @@
 				DEVELOPMENT_TEAM = H3K98GKZYH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "To read the step count";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "To read the step count";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -439,6 +555,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6B0186002AB9725700554903 /* XCRemoteSwiftPackageReference "UserDefaultsService" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DeepikaRamesh1510/UserDefaultsService.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+		6B7EE7522ABC2EC0002086D7 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
+		6B7EE7692ABCFD8E002086D7 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:mecid/SwiftUICharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6B0186012AB9725800554903 /* UserDefaultsService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B0186002AB9725700554903 /* XCRemoteSwiftPackageReference "UserDefaultsService" */;
+			productName = UserDefaultsService;
+		};
+		6B7EE7532ABC2EC0002086D7 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B7EE7522ABC2EC0002086D7 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		6B7EE76A2ABCFD8E002086D7 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B7EE7692ABCFD8E002086D7 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		6B7EE76F2ABD6C26002086D7 /* StepsCounter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6B7EE7702ABD6C26002086D7 /* StepsCounter.xcdatamodel */,
+			);
+			currentVersion = 6B7EE7702ABD6C26002086D7 /* StepsCounter.xcdatamodel */;
+			path = StepsCounter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6B0185CE2AB9220C00554903 /* Project object */;
 }
