@@ -34,15 +34,18 @@ class TodayViewModel: ObservableObject {
 	
 	var apiService: APIServiceProtocol
 	var sessionService: SessionService?
+	var dataController: DataController
 	
 	init(
 		healthKitManager: HealthKitManager,
 		userDefaultsService: UserDefaultsService,
-		apiService: APIServiceProtocol
+		apiService: APIServiceProtocol,
+		dataController: DataController
 	) {
 		self.healthKitManager = healthKitManager
 		self.userDefaultService = userDefaultsService
 		self.apiService = apiService
+		self.dataController = dataController
 		setup()
 	}
 	
@@ -125,9 +128,23 @@ class TodayViewModel: ObservableObject {
 		
 		switch result {
 			case .success(let value):
-				print(value)
+				saveStepsInDB(value)
 			case .failure(let err):
 				print(err.localizedDescription)
+		}
+	}
+	
+	func saveStepsInDB(_ value: StepsResponseModel) {
+		let moc = dataController.container.viewContext
+		let step = Step(context: moc)
+		step.id = value.id
+		step.date = value.stepsDateTime
+		step.stepsCount = value.stepsCount
+		step.stepsTotalByDay = value.stepsTotalByDay
+		do {
+			try moc.save()
+		} catch {
+			print(error.localizedDescription)
 		}
 	}
 	

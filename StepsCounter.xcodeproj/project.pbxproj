@@ -37,6 +37,7 @@
 		6B7EE76B2ABCFD8E002086D7 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6B7EE76A2ABCFD8E002086D7 /* SwiftUICharts */; };
 		6B7EE76E2ABD61B5002086D7 /* CustomProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE76D2ABD61B5002086D7 /* CustomProgressViewStyle.swift */; };
 		6B7EE7712ABD6C26002086D7 /* StepsCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE76F2ABD6C26002086D7 /* StepsCounter.xcdatamodeld */; };
+		6B7EE7732ABD6E9E002086D7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7722ABD6E9E002086D7 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		6B7EE7672ABCFB8C002086D7 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		6B7EE76D2ABD61B5002086D7 /* CustomProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressViewStyle.swift; sourceTree = "<group>"; };
 		6B7EE7702ABD6C26002086D7 /* StepsCounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StepsCounter.xcdatamodel; sourceTree = "<group>"; };
+		6B7EE7722ABD6E9E002086D7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			children = (
 				6B0185FE2AB95F5B00554903 /* HealthKitManager.swift */,
 				6B7EE76F2ABD6C26002086D7 /* StepsCounter.xcdatamodeld */,
+				6B7EE7722ABD6E9E002086D7 /* DataController.swift */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				6B0185FF2AB95F5B00554903 /* HealthKitManager.swift in Sources */,
 				6B7EE74A2ABC2556002086D7 /* AppConstants.swift in Sources */,
 				6B7EE7472ABC1A4D002086D7 /* StepsBaseViewModel.swift in Sources */,
+				6B7EE7732ABD6E9E002086D7 /* DataController.swift in Sources */,
 				6B7EE75D2ABCB185002086D7 /* LoginViewModel.swift in Sources */,
 				6B0185F12AB926C300554903 /* SettingsView.swift in Sources */,
 				6B7EE74E2ABC2A9B002086D7 /* StepCounterApiService.swift in Sources */,
