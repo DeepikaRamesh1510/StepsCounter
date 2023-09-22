@@ -1,9 +1,9 @@
-	//
-	//  HealthKitManager.swift
-	//  StepsCounter
-	//
-	//  Created by Deepika Ramesh on 9/18/23.
-	//
+//
+//  HealthKitManager.swift
+//  StepsCounter
+//
+//  Created by Deepika Ramesh on 9/18/23.
+//
 
 
 
@@ -67,7 +67,7 @@ class HealthKitManager: ObservableObject {
 		let sumOfStepsQuery = HKStatisticsCollectionQueryDescriptor(
 			predicate: stepsMonth,
 			options: .cumulativeSum,
-			anchorDate: endDate,
+			anchorDate: startDate,
 			intervalComponents: DateComponents(day: 1)
 		)
 		
