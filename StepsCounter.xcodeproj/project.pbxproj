@@ -26,7 +26,7 @@
 		6B7EE74E2ABC2A9B002086D7 /* StepCounterApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE74D2ABC2A9B002086D7 /* StepCounterApiService.swift */; };
 		6B7EE7502ABC2B69002086D7 /* StepCounterEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE74F2ABC2B69002086D7 /* StepCounterEndPoint.swift */; };
 		6B7EE7542ABC2EC0002086D7 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 6B7EE7532ABC2EC0002086D7 /* KeychainAccess */; };
-		6B7EE7562ABC32EA002086D7 /* StepsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7552ABC32EA002086D7 /* StepsModel.swift */; };
+		6B7EE7562ABC32EA002086D7 /* StepsUploadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7552ABC32EA002086D7 /* StepsUploadModel.swift */; };
 		6B7EE7592ABC3F2B002086D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7582ABC3F2B002086D7 /* LoginView.swift */; };
 		6B7EE75B2ABC401D002086D7 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE75A2ABC401D002086D7 /* SessionService.swift */; };
 		6B7EE75D2ABCB185002086D7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE75C2ABCB185002086D7 /* LoginViewModel.swift */; };
@@ -36,6 +36,7 @@
 		6B7EE7682ABCFB8C002086D7 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE7672ABCFB8C002086D7 /* HistoryViewModel.swift */; };
 		6B7EE76B2ABCFD8E002086D7 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6B7EE76A2ABCFD8E002086D7 /* SwiftUICharts */; };
 		6B7EE76E2ABD61B5002086D7 /* CustomProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE76D2ABD61B5002086D7 /* CustomProgressViewStyle.swift */; };
+		6B7EE7712ABD6C26002086D7 /* StepsCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B7EE76F2ABD6C26002086D7 /* StepsCounter.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +59,7 @@
 		6B7EE74B2ABC28A5002086D7 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		6B7EE74D2ABC2A9B002086D7 /* StepCounterApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCounterApiService.swift; sourceTree = "<group>"; };
 		6B7EE74F2ABC2B69002086D7 /* StepCounterEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCounterEndPoint.swift; sourceTree = "<group>"; };
-		6B7EE7552ABC32EA002086D7 /* StepsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsModel.swift; sourceTree = "<group>"; };
+		6B7EE7552ABC32EA002086D7 /* StepsUploadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsUploadModel.swift; sourceTree = "<group>"; };
 		6B7EE7582ABC3F2B002086D7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6B7EE75A2ABC401D002086D7 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		6B7EE75C2ABCB185002086D7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		6B7EE7652ABCF430002086D7 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		6B7EE7672ABCFB8C002086D7 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		6B7EE76D2ABD61B5002086D7 /* CustomProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressViewStyle.swift; sourceTree = "<group>"; };
+		6B7EE7702ABD6C26002086D7 /* StepsCounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StepsCounter.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +180,7 @@
 		6B0185EC2AB9229100554903 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6B7EE7552ABC32EA002086D7 /* StepsModel.swift */,
+				6B7EE7552ABC32EA002086D7 /* StepsUploadModel.swift */,
 				6B7EE75E2ABCBAE9002086D7 /* AuthUploadModel.swift */,
 				6B7EE7602ABCBB86002086D7 /* AuthResponseModel.swift */,
 			);
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				6B0185FE2AB95F5B00554903 /* HealthKitManager.swift */,
+				6B7EE76F2ABD6C26002086D7 /* StepsCounter.xcdatamodeld */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -324,7 +327,7 @@
 				6B7EE76E2ABD61B5002086D7 /* CustomProgressViewStyle.swift in Sources */,
 				6B0185EF2AB9268E00554903 /* TabbarView.swift in Sources */,
 				6B7EE7612ABCBB86002086D7 /* AuthResponseModel.swift in Sources */,
-				6B7EE7562ABC32EA002086D7 /* StepsModel.swift in Sources */,
+				6B7EE7562ABC32EA002086D7 /* StepsUploadModel.swift in Sources */,
 				6B7EE7502ABC2B69002086D7 /* StepCounterEndPoint.swift in Sources */,
 				6B0185FF2AB95F5B00554903 /* HealthKitManager.swift in Sources */,
 				6B7EE74A2ABC2556002086D7 /* AppConstants.swift in Sources */,
@@ -334,6 +337,7 @@
 				6B7EE74E2ABC2A9B002086D7 /* StepCounterApiService.swift in Sources */,
 				6B7EE7682ABCFB8C002086D7 /* HistoryViewModel.swift in Sources */,
 				6B0185DC2AB9220D00554903 /* ContentView.swift in Sources */,
+				6B7EE7712ABD6C26002086D7 /* StepsCounter.xcdatamodeld in Sources */,
 				6B7EE75B2ABC401D002086D7 /* SessionService.swift in Sources */,
 				6B0185F32AB926E700554903 /* StepsBaseView.swift in Sources */,
 				6B0185F52AB92A5500554903 /* TodayView.swift in Sources */,
@@ -592,6 +596,19 @@
 			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		6B7EE76F2ABD6C26002086D7 /* StepsCounter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6B7EE7702ABD6C26002086D7 /* StepsCounter.xcdatamodel */,
+			);
+			currentVersion = 6B7EE7702ABD6C26002086D7 /* StepsCounter.xcdatamodel */;
+			path = StepsCounter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6B0185CE2AB9220C00554903 /* Project object */;
 }

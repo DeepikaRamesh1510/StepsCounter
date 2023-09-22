@@ -32,7 +32,7 @@ extension Endpoint {
 
 enum StepCounterEndPoint {
 	case login(AuthUploadModel)
-	case uploadSteps(StepsModel)
+	case uploadSteps(StepsUploadModel)
 }
 
 extension StepCounterEndPoint: Endpoint {

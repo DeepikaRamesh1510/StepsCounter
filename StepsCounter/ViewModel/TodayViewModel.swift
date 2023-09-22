@@ -110,7 +110,7 @@ class TodayViewModel: ObservableObject {
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 		let date = Date()
 		let dateString = dateFormatter.string(from: date)
-		let payload = StepsModel(
+		let payload = StepsUploadModel(
 			name: sessionService?.appUser.username ?? "",
 			stepsDate: dateString,
 			stepsDateTime: dateString,
@@ -120,7 +120,7 @@ class TodayViewModel: ObservableObject {
 		
 		let result = await apiService.sendRequest(
 			endpoint: StepCounterEndPoint.uploadSteps(payload),
-			responseModel: StepsModel.self
+			responseModel: StepsResponseModel.self
 		)
 		
 		switch result {
