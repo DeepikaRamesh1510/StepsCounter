@@ -29,8 +29,12 @@ struct TodayView: View {
 			Text("Steps")
 				.font(.headline)
 			Spacer()
+			ProgressView(value: viewModel.progressStatus)
+				.progressViewStyle(CustomProgressViewStyle(height: 100.0, bottomLabelString: "10,000 Steps"))
+				.padding([.trailing, .leading], 30)
+			Spacer()
 			BarChartView(dataPoints: viewModel.hourlyDataPoints)
-				.padding()
+				.padding(30)
 		}
 		.onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
 			viewModel.updateView()

@@ -23,6 +23,9 @@ class TodayViewModel: ObservableObject {
 	@Published
 	var hourlyDataPoints: [DataPoint] = []
 	
+	@Published
+	var progressStatus: Double = 0.0
+	
 	var cancellable: Set<AnyCancellable> = []
 	var userDefaultService: UserDefaultsService
 	
@@ -46,6 +49,14 @@ class TodayViewModel: ObservableObject {
 		self.healthKitManager.$stepCountToday
 			.receive(on: DispatchQueue.main)
 			.assign(to: \.steps, on: self)
+			.store(in: &cancellable)
+		
+		self.healthKitManager.$stepCountToday
+			.receive(on: DispatchQueue.main)
+			.map { value in
+				value / 10000
+			}
+			.assign(to: \.progressStatus, on: self)
 			.store(in: &cancellable)
 		
 		self.healthKitManager.$todayHourlyStepCount
