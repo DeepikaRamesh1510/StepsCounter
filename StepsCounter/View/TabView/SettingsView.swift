@@ -19,6 +19,7 @@ struct SettingsView: View {
 	
     var body: some View {
 		VStack {
+			Spacer()
 			Text(viewModel.userName)
 				.font(.largeTitle)
 			Text(viewModel.email)

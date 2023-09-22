@@ -46,10 +46,6 @@ struct LoginView: View {
 					.font(.caption)
 					.foregroundColor(.red)
 			}
-//			Spacer()
-//			Button("Don't have an account? Sign up") {
-//				print("Pressed sign up button!")
-//			}
 		}
 		.padding(.horizontal, 20)
 		.onAppear {

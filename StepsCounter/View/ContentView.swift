@@ -14,21 +14,19 @@ struct ContentView: View {
 	var appSessionState: SessionService = SessionService(keychain: keychain)
 	
 	var body: some View {
-		NavigationView {
-			switch appSessionState.state {
-				case .login:
-					LoginView()
-				case .tabView:
-					TabbarView()
-			}
+		switch appSessionState.state {
+			case .login:
+				LoginView()
+					.environmentObject(appSessionState)
+			case .tabView:
+				TabbarView()
+					.environmentObject(appSessionState)
 		}
-		.navigationBarHidden(true)
-		.environmentObject(appSessionState)
 	}
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+	static var previews: some View {
+		ContentView()
+	}
 }
