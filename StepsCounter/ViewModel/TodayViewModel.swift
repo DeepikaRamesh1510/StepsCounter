@@ -33,6 +33,7 @@ class TodayViewModel: ObservableObject {
 	var timerCancellable: AnyCancellable? = nil
 	
 	var apiService: APIServiceProtocol
+	var sessionService: SessionService?
 	
 	init(
 		healthKitManager: HealthKitManager,
@@ -43,6 +44,13 @@ class TodayViewModel: ObservableObject {
 		self.userDefaultService = userDefaultsService
 		self.apiService = apiService
 		setup()
+	}
+	
+	func setup(sessionService: SessionService) {
+		self.sessionService = sessionService
+		Task {
+			await uploadData()
+		}
 	}
 	
 	func setup() {
@@ -91,24 +99,36 @@ class TodayViewModel: ObservableObject {
 			await healthKitManager.fetchTodaysStepCount()
 			await healthKitManager.fetchTodayHourlyData()
 			userDefaultService.set(date, forKey: StepCounterUDKeys.todayStepCountLastRetreivedTime)
+			
+			guard sessionService != nil else { return }
 			await uploadData()
 		}
 	}
 	
 	func uploadData() async {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+		let date = Date()
+		let dateString = dateFormatter.string(from: date)
 		let payload = StepsModel(
-			name: "user1",
-			stepsDate: "2023-09-10T18:19:08.725Z",
-			stepsDateTime: "2023-09-10T18:19:08.725Z",
-			stepsCount: 5,
-			stepsTotalByDay: 10
+			name: sessionService?.appUser.username ?? "",
+			stepsDate: dateString,
+			stepsDateTime: dateString,
+			stepsCount: Int(steps),
+			stepsTotalByDay: Int(steps)
 		)
 		
 		let result = await apiService.sendRequest(
 			endpoint: StepCounterEndPoint.uploadSteps(payload),
 			responseModel: StepsModel.self
 		)
-		print(result)
+		
+		switch result {
+			case .success(let value):
+				print(value)
+			case .failure(let err):
+				print(err.localizedDescription)
+		}
 	}
 	
 	func stopTimer() {

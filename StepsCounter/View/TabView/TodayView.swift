@@ -22,6 +22,9 @@ struct TodayView: View {
 		apiService: StepCounterApiService()
 	)
 	
+	@EnvironmentObject
+	var sessionService: SessionService
+	
 	var body: some View {
 		VStack {
 			Text("\(Int(viewModel.steps))")
@@ -30,16 +33,25 @@ struct TodayView: View {
 				.font(.headline)
 			Spacer()
 			ProgressView(value: viewModel.progressStatus)
-				.progressViewStyle(CustomProgressViewStyle(height: 100.0, bottomLabelString: "10,000 Steps"))
+				.progressViewStyle(
+					CustomProgressViewStyle(height: 100.0, bottomLabelString: "10,000 Steps")
+				)
 				.padding([.trailing, .leading], 30)
 			Spacer()
 			BarChartView(dataPoints: viewModel.hourlyDataPoints)
 				.padding(30)
 		}
-		.onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+		.onAppear {
+			viewModel.setup(sessionService: sessionService)
+		}
+		.onReceive(
+			NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
+		) { _ in
 			viewModel.updateView()
 		}
-		.onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+		.onReceive(
+			NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
+		) { _ in
 			viewModel.stopTimer()
 		}
 	}
