@@ -26,7 +26,7 @@ struct StepsUploadModel: Codable {
 }
 
 struct StepsResponseModel: Codable {
-	var id: String
+	var id: Int
 	var stepsDateTime: String
 	var stepsCount: Int
 	var stepsTotalByDay: Int

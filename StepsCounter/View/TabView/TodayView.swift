@@ -19,7 +19,8 @@ struct TodayView: View {
 	var viewModel: TodayViewModel = TodayViewModel(
 		healthKitManager: HealthKitManager.shared,
 		userDefaultsService: UserDefaultsService.shared,
-		apiService: StepCounterApiService()
+		apiService: StepCounterApiService(),
+		dataController: DataController.shared
 	)
 	
 	@EnvironmentObject

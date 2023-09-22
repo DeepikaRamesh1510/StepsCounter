@@ -137,10 +137,10 @@ class TodayViewModel: ObservableObject {
 	func saveStepsInDB(_ value: StepsResponseModel) {
 		let moc = dataController.container.viewContext
 		let step = Step(context: moc)
-		step.id = value.id
+		step.id = Int64(value.id)
 		step.date = value.stepsDateTime
-		step.stepsCount = value.stepsCount
-		step.stepsTotalByDay = value.stepsTotalByDay
+		step.stepsCount = Int16(value.stepsCount)
+		step.stepsTotalByDay = Int16(value.stepsTotalByDay)
 		do {
 			try moc.save()
 		} catch {

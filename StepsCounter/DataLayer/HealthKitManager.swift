@@ -185,7 +185,7 @@ class HealthKitManager: ObservableObject {
 		
 		let predicate = HKQuery.predicateForSamples(
 			withStart: DateHelper.startOfToday,
-			end: DateHelper.currentDate
+			end: DateHelper.calendar.date(byAdding: .day, value: 1, to: DateHelper.startOfToday)
 		)
 		
 		let stepType = HKQuantityType(.stepCount)
